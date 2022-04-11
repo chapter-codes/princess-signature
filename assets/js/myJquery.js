@@ -26,7 +26,7 @@ function HandleSlideShow(){
 		 ]
 		
 		 
-		 $('.recent-styles-slide').css("background-image",`url(../images/${rctImgSrcArrray[0].split(' ')[0]})`)
+		 $('.recent-styles-slide').css("background-image",`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
 		  
 		 $('.recent-styles-slide').click(slideFunc)
 
@@ -38,7 +38,7 @@ function HandleSlideShow(){
 			const slideParent=$('.slide-container')[0]
 			slideParent.className='slide-container'
 			slideParent.classList.add(newClass)			
-			$('.slide-container').css('background-image',`url(../images/${rctImgSrcArrray[0].split(' ')[0]})`)
+			$('.slide-container').css('background-image',`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
 			$('.recent-styles-slide').slideUp(700)
 
 			const slide= $('.recent-styles-slide')[0]
@@ -47,7 +47,7 @@ function HandleSlideShow(){
 			slide.classList.add(newClass)		
 
 			$('.recent-styles-slide').slideDown(0)
-			$('.recent-styles-slide').css("background-image",`url(../images/${rctImgSrcArrray[0].split(' ')[0]})`)
+			$('.recent-styles-slide').css("background-image",`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
 
 		},700)
 
