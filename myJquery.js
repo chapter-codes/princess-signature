@@ -26,20 +26,24 @@ function HandleSlideShow(){
 		 ]
 		
 		 
-		 $('.recent-styles-slide').css("background-image",`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
+		 $('.recent-styles-slide').css("background-image",`url('./assets/images/${rctImgSrcArrray[0].split(' ')[0]}')`)
 		  
 		 $('.recent-styles-slide').click(slideFunc)
 
+		 const slideParent=$('.slide-container')[0]
+
 		 function slideFunc(){
+			slideParent.className='slide-container'
+			slideParent.classList.add(rctImgSrcArrray[1].split(' ')[1])			
+			$('.slide-container').css('background-image',`url('./assets/images/${rctImgSrcArrray[1].split(' ')[0]}')`)
+
 			let initialItem=rctImgSrcArrray.shift()
+
 			rctImgSrcArrray.push(initialItem)
 			let newClass=rctImgSrcArrray[0].split(' ')[1]
 			
-			const slideParent=$('.slide-container')[0]
-			slideParent.className='slide-container'
-			slideParent.classList.add(newClass)			
-			$('.slide-container').css('background-image',`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
-			$('.recent-styles-slide').slideUp(700)
+
+			$('.recent-styles-slide').slideUp(1000)
 
 			const slide= $('.recent-styles-slide')[0]
 			setTimeout(function(){
@@ -47,7 +51,7 @@ function HandleSlideShow(){
 			slide.classList.add(newClass)		
 
 			$('.recent-styles-slide').slideDown(0)
-			$('.recent-styles-slide').css("background-image",`url(./assets/images/${rctImgSrcArrray[0].split(' ')[0]})`)
+			$('.recent-styles-slide').css("background-image",`url('./assets/images/${rctImgSrcArrray[0].split(' ')[0]}')`)
 
 		},700)
 

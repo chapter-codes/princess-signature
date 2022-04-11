@@ -33,6 +33,10 @@ html{
 body{
 	color:var(--primary);
 }
+main{
+	margin:var(--header-height) 0;
+
+}
 
 header{
 width:100%;
@@ -47,9 +51,13 @@ justify-content: space-between;
 align-items: center;
 z-index: 20;
 opacity: .79;
-
 }
 
+p{
+	font-family: var(--text-font)
+}
+
+/* special tags */
 header.shadow{
 	box-shadow:0 0 5px 1px grey	;
 	opacity:1;
@@ -65,10 +73,9 @@ h2.desc{
 	color:var(--primary);
 	padding:0 0 0 .5rem;
 	margin:0 0 1.5rem;
+	line-height:2rem;
 }
-p{
-	font-family: var(--text-font)
-}
+
 p.msg{
 	margin:1rem auto;
 	padding: .5rem;
@@ -76,14 +83,15 @@ p.msg{
 	height:220px;
 	border-radius:5px;
 	line-height: 1.5rem;
-	box-shadow: 0 0 5px 5px var(--primary-soft);
+	box-shadow: 0 0 5px 1px var(--primary-soft);
 	display: flex;
 	align-items: center;
 	font-size:1.5rem;
 	color:var(--primary-soft)
 }
-/* 2 selector styles.*/
 
+
+/* class/id selector styles.*/
 
 .logo{
 	height: inherit;
@@ -157,7 +165,15 @@ p.msg{
 .navbar a{
 	text-decoration:none;	
 }
-
+.navbar a:focus{
+	color:green;
+}
+.navbar a:visited{
+	color:var(--primary)
+}
+.navbar a:hover{
+	color:green;
+}
 
 main .hero{
 	background: url(../images/beauty-mobile.jpg);
@@ -175,16 +191,6 @@ main .hero{
 	right:10px;
 	z-index:5;
 }
-.content{
-	width:80%;
-	
-}
-.content> p{
-	text-transform: capitalize;
-	font-size:1.3rem;
-	font-weight:bolder;
-	color:whitesmoke;
-}
 .hero::after{
 	position: absolute;
 	top:0;
@@ -194,23 +200,37 @@ main .hero{
 	content: "";
 	background:black;
 	color:white;
-	opacity:0.5;
+	opacity:0.3;
+}
+
+.content{
+	width:80%;
+}
+.content> p{
+	text-transform: capitalize;
+	font-size:1.3rem;
+	font-weight:bolder;
+	color:whitesmoke;
 }
 
 
 .overflow{
 	position:relative;
 	width:80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	margin:auto;
 	color:var(--primary);
 	box-shadow: 0px 0px 20px var(--primary-soft);
-	top:-50px;
+	top:-1000px;
 	z-index:10;
 	background-color: white;
 	border-radius:10px 10px 0px 0px;
 	padding: 1rem;
 	transition: all 100ms;
-	animation: translate 3s forwards;
+	animation: translate 5s forwards 1s;
 }
 
 .overflow > p{
@@ -225,11 +245,18 @@ main .hero{
 	0%{
 		top:-1000px
 	}
-	
-	30%{
-		top:-300px
+
+	15%{
+		/* top:-500px */
+		top:-750px
 	}
 	
+	30%{
+		top:-300px;
+	}
+	/* 70%{
+		top:-150%
+	} */
 	100%{
 		top:-50px;
 	}
@@ -332,9 +359,8 @@ main .hero{
 	background-position: -125px -65px;
 	background-repeat: no-repeat;
 	/* border:1px solid white; */
-	border-radius:10px;
-	box-shadow: -5px -5px 6px .5px rgb(212, 207, 207);
-}
+	border-radius:5px;
+	box-shadow: -5px -5px 3px .5px whitesmoke}
 
 #contact-us{
 	color:var(--primary-soft);
@@ -388,54 +414,67 @@ main .hero{
 		display:flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-left:10px;
-	
+		padding-left:15px;	
 	}
 	.right p{
-		line-height: 30px;
 		color:white;
-		font-size:15px;
-		margin:5px 0;
+		padding:1rem 0;
+		/* margin:5px 0; */
 	}
-	.right a{
+	.right p a{
 		text-decoration: none;
 		color:inherit;
 	}
+	.right p svg{
+		display: inline-block;
+		margin-right: 10px;
+		font-size:20px;
+	}
+	
 
 
 
 
 	footer{
-		background-color:var(--primary-soft);
-		height:rem;
+		background-color:var(--primary);
+		color:white;
+		width:100%;
+		margin-top:var(--header-height);
+		padding: .5rem 0 1rem;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	.footer-img{
-		height:inherit;
-		width:100%;
+		height:4rem;
 		padding-left:10px;
 	}
-	footer img{
+.footer-img img{
 		height:100%;
-		width:auto;
+		width:auto;		
 	}
-
-
+	footer .dev-contact{
+		text-align: center;
+	}
+	footer p{
+		padding:1rem;
+	}
+/* responsive design for desktop */
 	@media(min-width:760px){
 	:root{
 		font-size: 16px;
-		/* --header-height:var(--header-height) */
+		--header-height:3.5rem;
 	}
 
-		main{
-			padding-top:var(--header-height)
-		}
 		h2.desc{
 			height: 5rem;
 			margin:.5rem 0;
 			padding-left:10px;
 			font-size: 1.2rem;
 			text-transform: capitalize;
-			color:var(--primary)
+			color:var(--primary);
+		
 		}
 		/* body main div{
 			width:60%;
@@ -444,10 +483,11 @@ main .hero{
 		main .hero{
 			background-image: url(../images/beauty-desktop.jpg);
 			background-position:0 0%;
-			height:80vh;
+			height:85vh;
 		}
 		.hero .content{
-		left:10px;
+		left:20px;
+		bottom:70px;
 		}
 		.overflow{
 			/* background-color: var(--primary); */
@@ -456,6 +496,7 @@ main .hero{
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+
 		}
 		@keyframes translate {
 			0%{
@@ -463,6 +504,9 @@ main .hero{
 			}
 			30%{
 				top:-500px;
+			}
+			100%{
+				top:-50px;
 			}
 		}
 		.overflow p{
@@ -473,15 +517,15 @@ main .hero{
 		section.responsive{
 			display:grid;
 			grid-template-columns: 1fr 1fr ;
-			gap: 10px;
+			gap:4rem;
 			padding:.5rem;
 			max-width:800px;
 			margin:auto;
 		}
 		section.responsive > div{
 			border-radius:10px;
-			box-shadow:0 0 8px 3px rgb(39, 4, 4);
-			
+			box-shadow:0 0 5px 1px rgb(94, 78, 78);
+			padding-bottom:2rem;
 		}
 
 		#our-goal p.msg{
@@ -489,5 +533,24 @@ main .hero{
 		}
 		#about-us .container{
 			height:350px;
+		}
+		#about-us p.speech{
+			font-size:15.5px
+		}
+
+		footer{
+			height:8rem;
+			flex-direction: revert;
+			justify-content: space-around;
+		}
+		footer > p{
+			font-size:1.1rem
+		}
+
+
+
+		footer .dev-contact{
+			/* display: block; */
+			width:60%;
 		}
 	}
